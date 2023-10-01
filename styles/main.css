@@ -1,0 +1,155 @@
+/* Tailwind base/components */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Custom Style Imports */
+@import "_typography.css";
+
+/* Tailwind Utilities */
+@import "tailwindcss/utilities";
+
+:root {
+  --space: 2rem;
+  --space-xs: calc(var(--space) / 3);
+  --space-sm: calc(var(--space) / 2);
+  --space-md: calc(var(--space) * 2);
+
+  /* --color-primary: lightgray;
+  --color-accent: whitesmoke;
+  --color-dark: black;
+  --color-mid: gray;
+  --color-light: white;
+  --color-highlight: dodgerblue; */
+
+  --radius: 0.125rem;
+}
+
+/* Simple defaults */
+body {
+  @apply font-sans antialiased text-black;
+  /* bg-[#e5e6e1] */
+  /* background-color: #b7b7b7; */
+  background: #f6f6f6;
+}
+
+span.clickable {
+  color: rgb(56, 54, 49);
+}
+
+span.clickable:hover {
+  color: #5fe2ff;
+}
+.song-list {
+  @apply flex flex-col items-center justify-center;
+}
+
+.song-item {
+  @apply flex flex-col items-center justify-center;
+  position: relative;
+}
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+  -webkit-user-select: none;
+  user-select: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.song-item {
+  background-color: #c4c4c4;
+  width: 100%;
+}
+
+.kanji-wrapper {
+  /* color: #363c59 */
+  color: #65451d;
+}
+
+.accordion-items {
+  position: relative;
+  /* background-color: #c4c4c4; */
+  background-color: #fff;
+  width: 100%;
+  padding: 0.7rem;
+  z-index: 2;
+  -webkit-user-select: none;
+  user-select: none;
+  /* cursor: pointer; */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  color: #282828;
+}
+
+.accordion-items {
+  display: grid;
+
+  grid-template-columns: 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.accordion-items::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 2;
+  border-radius: 1rem;
+  /* box-shadow: 0 0 0 0.5rem #b7b7b7; */
+  box-shadow: 0 0 0 0.5rem #fff;
+  pointer-events: none;
+}
+
+.accordion-items__item {
+  display: grid;
+  content-visibility: auto;
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+  width: 100%;
+}
+
+.jp-wrapper {
+  background-color: #ddcfcf;
+}
+
+.eng-wrapper {
+  background-color: #aebbba;
+  color: #3a4444;
+}
+
+.kor-wrapper {
+  /* background-color: #e5e6e1; */
+  background-color: #d3cec4;
+}
+
+.sidebar {
+  --offset: var(--space);
+  /* flex-grow: 1; */
+  /* flex-basis: 300px; */
+  align-self: start;
+  position: sticky;
+  top: var(--offset);
+  right: 1rem;
+}
+
+.sidebar .kanji-wrapper {
+  max-height: calc(100vh - var(--offset) * 2);
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03),
+    0 16px 32px rgba(0, 0, 0, 0.02), 0 32px 64px rgba(0, 0, 0, 0.02);
+}
+
+.kanji-content {
+  max-height: 500px;
+  overflow-y: auto;
+}
