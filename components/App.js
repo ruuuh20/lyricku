@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Kanjiapi } from "kanjiapi-wrapper";
 
 import Kanji from "./Kanji";
-import Lyrics from "./Lyrics"; // Import the Lyrics component
-import SongContainer from "./songContainer";
+import Lyrics from "./Lyrics"; // Import the Lyrics componenter";
 
 import Header from "./header";
 import Accordion from "./accordion";
-import HTMLReactParser from "html-react-parser";
 import SongForm from "./songForm";
 import EditSongForm from "./editSongForm";
 // import { getServerSideProps } from "next";

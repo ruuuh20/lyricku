@@ -4,11 +4,7 @@
   "version": "1.0.0",
   "license": "ISC",
   "keywords": [
-    "nextjs",
-    "next",
-    "tailwind",
-    "framer",
-    "motion"
+    "nextjs"
   ],
   "scripts": {
     "dev": "next dev",

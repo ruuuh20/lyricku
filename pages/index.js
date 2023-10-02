@@ -3,7 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
-import { NextSeo } from 'next-seo'
+
 import { useState } from 'react'
 
 import App from '../components/App';
