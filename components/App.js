@@ -15,7 +15,7 @@ function App({ songs }) {
   const [selectedWord, setSelectedWord] = useState("万");
   const [selectedSong, setSelectedSong] = useState(null);
 
-  console.log(songs);
+  
 
   useEffect(() => {
     const kanjiapiInstance = Kanjiapi.build();
@@ -24,8 +24,8 @@ function App({ songs }) {
 
   const handleWordClick = (word) => {
     setSelectedWord(word);
-    // console.log(kanjiData["kanjis"][word]);
-    console.log(word);
+  
+    
   };
 
   const handleSongClick = (song) => {

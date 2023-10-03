@@ -16,7 +16,7 @@ async function updateSong(songId, updatedData) {
     if (response.ok) {
       // Song updated successfully
       const result = await response.json();
-      console.log(result.message);
+      
     } else {
       // Handle errors
       const errorData = await response.json();

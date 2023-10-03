@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   dbConnect();
   if (req.method === 'POST') {
     const songData = req.body; // Retrieve song data from the request body
-console.log(req)
+
     try {
       // Call your function to create and save the song
       console.log("hello")

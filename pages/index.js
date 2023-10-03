@@ -14,7 +14,7 @@ const HomePage = ({songs}) => {
 
 export const getServerSideProps = async () => {
   // Fetch songs data from the server-side route or database
-  const response = await fetch('http://127.0.0.1:5000/api/getSongs');
+  const response = await fetch('http://127.0.0.1:8000:3000/api/getSongs');
   const songs = await response.json();
 
   return {
