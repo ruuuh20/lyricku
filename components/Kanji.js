@@ -23,7 +23,7 @@ const Kanji = ({ kanji }) => (
     </ul>
     </>
   ) : kanji.status === Kanjiapi.LOADING ? (
-    <div>Loading</div>
+    <div>Not selected</div>
   ) : (
     <div>Error</div>
   )

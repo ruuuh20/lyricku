@@ -8,11 +8,12 @@ import Header from "./header";
 import Accordion from "./accordion";
 import SongForm from "./songForm";
 import EditSongForm from "./editSongForm";
+
 // import { getServerSideProps } from "next";
 
 function App({ songs }) {
   const [kanjiapi, setKanjiapi] = useState(null);
-  const [selectedWord, setSelectedWord] = useState("万");
+  const [selectedWord, setSelectedWord] = useState("-");
   const [selectedSong, setSelectedSong] = useState(null);
 
   
@@ -37,16 +38,17 @@ function App({ songs }) {
       <Header />
       <div className="container flex w-full mx-auto max-w-screen-2xl ">
         <div className="w-4/5 px-6 overflow-y-auto">
-          <SongForm />
+          {/* <SongForm /> */}
 
           <div className="min-h-screen p-4">
-            <h1 className="mb-4 text-2xl font-semibold">Recently Added</h1>
+            <h2 className="mb-4 font-mono text-2xl font-light tracking-tight">Recently Added</h2>
             {songs.map((song, index) => (
               <Accordion
                 key={index}
                 artist={song.artist}
                 title={song.title}
                 lyrics={song.lyrics}
+                thumbnail={song.thumbnail}
               >
                 {song.lyrics && (
                   <div className="p-2 accordion-items__item jp-wrapper">

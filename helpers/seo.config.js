@@ -1,5 +1,5 @@
 export default {
-  defaultTitle: 'My project',
+  defaultTitle: 'Lyriku',
 
 
 };

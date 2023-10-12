@@ -25,7 +25,11 @@ export default function About() {
             <m.div variants={fade}>
               <h1 className="mb-4 text-2xl font-bold md:text-3xl xl:text-4xl">🎵</h1>
               <div className="max-w-3xl mb-4 content">
-                <p>project description</p>
+                <p className='gray-600'>The idea for this project came from a passion for Japanese music and learning the language. I wanted to create a collection of songs preserving both the original lyrics and translations. </p>
+<p>
+I find that associating my study of the language with both English and Korean enhances my understanding of it. This applies to song lyrics as well. This project is my personal way of sharing the songs that resonate with me and simultaneously supports my ongoing Japanese language journey. The most difficult part for me has been learning Kanji, which is why I wanted to integrate the ability to look up Kanji in the lyrics.</p>
+
+<p>I would like to expand it to all kinds of songs, explore diverse musical genres, and hopefully be of support to other language learners.</p>
               </div>
               
           

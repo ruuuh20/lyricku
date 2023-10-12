@@ -8,7 +8,7 @@ dbConnect(); // Connect to the database
 export default async (req, res) => {
   if (req.method === 'PUT') {
     try {
-      const { id, title, artist, /* other fields */ } = req.body;
+      const { id, title, artist, thumbnail, /* other fields */ } = req.body;
 
       // Find the song by ID
       const song = await Song.findById(id);
@@ -20,6 +20,7 @@ export default async (req, res) => {
       // Update the song data
       song.title = title;
       song.artist = artist;
+      song.thumbnail = thumbnail;
       // Update other fields as needed
 
       // Save the updated song to the database

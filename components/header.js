@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="py-4 mb-4 bg-white md:mb-6 xl:mb-8">
+    <header className="py-4 mb-4 bg-[#44617b] text-white md:mb-6 xl:mb-8">
       <Container>
         <div className="flex flex-wrap">
           <Link href="/" className='mb-1 underline md:mb-0 hover:text-gray-500 focus:text-gray-500'>Home</Link>

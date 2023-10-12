@@ -26,7 +26,7 @@ import Song from './models/song'; // Import your Mongoose model
 async function createNewSong(songData) {
   // Extract data from the songData object
   const { title, artist, lyrics,  lyricsK,
-    lyricsE } = songData;
+    lyricsE, thumbnail } = songData;
 
   // Parse lyrics and perform any other necessary operations
 //   const parsedLyrics = await parseLyrics(lyrics); // Replace with your parsing logic
@@ -38,7 +38,8 @@ async function createNewSong(songData) {
     // lyrics: parsedLyrics, // Use the parsed lyrics
     lyrics,
     lyricsK,
-    lyricsE
+    lyricsE,
+    thumbnail
   });
 
 
