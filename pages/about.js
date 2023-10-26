@@ -27,9 +27,9 @@ export default function About() {
               <div className="max-w-3xl mb-4 content">
                 <p className='gray-600'>The idea for this project came from a passion for Japanese music and learning the language. I wanted to create a collection of songs preserving both the original lyrics and translations. </p>
 <p>
-I find that associating my study of the language with both English and Korean enhances my understanding of it. This applies to song lyrics as well. This project is my personal way of sharing the songs that resonate with me and simultaneously supports my ongoing Japanese language journey. The most difficult part for me has been learning Kanji, which is why I wanted to integrate the ability to look up Kanji in the lyrics.</p>
+I find that associating my study of the language with both English and Korean enhances my understanding of it. This applies to song lyrics as well.  The most difficult part for me has been learning Kanji, which is why I wanted to integrate the ability to look up Kanji in the lyrics.</p>
 
-<p>I would like to expand it to all kinds of songs, explore diverse musical genres, and hopefully be of support to other language learners.</p>
+<p>Continuously adding: If you click on a kanji character, the definition will show up!</p>
               </div>
               
           
