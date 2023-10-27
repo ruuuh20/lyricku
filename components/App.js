@@ -8,6 +8,7 @@ import Header from "./header";
 import Accordion from "./accordion";
 import SongForm from "./songForm";
 import EditSongForm from "./editSongForm";
+import AboutSidebar from "./aboutSidebar";
 
 // import { getServerSideProps } from "next";
 
