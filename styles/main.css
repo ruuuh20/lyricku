@@ -29,7 +29,8 @@ body {
   @apply font-sans antialiased text-black;
   /* bg-[#e5e6e1] */
   /* background-color: #b7b7b7; */
-  background: #f6f6f6;
+  /* background: #f6f6f6; */
+  background: #3a4444;
 }
 
 span.clickable {

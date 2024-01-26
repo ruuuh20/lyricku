@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Kanjiapi } from "kanjiapi-wrapper";
 
 import Kanji from "./Kanji";
-import Lyrics from "./Lyrics"; // Import the Lyrics componenter";
+import Lyrics from "./Lyrics"; 
 
 import Header from "./header";
 import Accordion from "./accordion";
 import SongForm from "./songForm";
 import EditSongForm from "./editSongForm";
 import AboutSidebar from "./aboutSidebar";
+import ArtistForm from "./artistForm";
 
 // import { getServerSideProps } from "next";
 
@@ -39,7 +40,8 @@ function App({ songs }) {
       <Header />
       <div className="container flex w-full mx-auto max-w-screen-2xl ">
         <div className="w-4/5 px-6 overflow-y-auto">
-          {/* <SongForm /> */}
+          <SongForm />
+          <ArtistForm />
 
           <div className="min-h-screen p-4">
             <h2 className="mb-4 font-mono text-2xl font-light tracking-tight">Recently Added</h2>

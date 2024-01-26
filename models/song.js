@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 const songSchema = new mongoose.Schema({
   title: String,
-  artist: String,
+    artist: { type: mongoose.Schema.Types.ObjectId, ref: 'Artist' },
   lyrics: String,
   lyricsK: String,
   lyricsE: String,

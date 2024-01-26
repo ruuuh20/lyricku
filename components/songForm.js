@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function SongForm() {
   const [songData, setSongData] = useState({
@@ -9,7 +9,20 @@ function SongForm() {
     lyricsK: "",
     thumbnail: "",
   });
+  const [artists, setArtists] = useState([]); // State to store artists for dropdown
 
+  useEffect(() => {
+    // Fetch the list of artists to populate the dropdown
+    const fetchArtists = async () => {
+      const response = await fetch("/api/getArtists");
+      if (response.ok) {
+        const artistList = await response.json();
+        setArtists(artistList.data);
+      }
+    };
+
+    fetchArtists();
+  }, []);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSongData({ ...songData, [name]: value });
@@ -19,7 +32,7 @@ function SongForm() {
     e.preventDefault();
 
     // Send the songData to the server-side route
-    const response = await fetch("/api/createSong", {
+    const response = await fetch("/api/createNewSong", {
       method: "POST",
       body: JSON.stringify(songData),
       headers: {
@@ -56,12 +69,26 @@ function SongForm() {
       </div>
       <div>
         <label className="mr-1">Artist:</label>
-        <input
+        {/* <input
           type="text"
           name="artist"
           value={songData.artist}
           onChange={handleInputChange}
-        />
+        /> */}
+        <select
+          name="artist"
+          value={songData.artist}
+          onChange={handleInputChange}
+        >
+          <option value="" disabled>
+            Select an artist
+          </option>
+          {artists.map((artist) => (
+            <option key={artist._id} value={artist.name}>
+              {artist.name}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <div className="my-2">
