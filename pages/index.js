@@ -14,7 +14,7 @@ const HomePage = ({songs}) => {
 
 export const getServerSideProps = async () => {
   // Fetch songs data from the server-side route or database
-  const response = await fetch(process.env.API_URL + '/api/getSongs', {
+  const response = await fetch(process.env.API_URL + '/api/recentSongs', {
   cache: 'no-store',
 });
   const songs = await response.json();

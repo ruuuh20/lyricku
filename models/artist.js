@@ -8,8 +8,8 @@ const artistSchema = new mongoose.Schema({
   profileImage: String, // URL to the profile image
   bio: String,
   songs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Song' }],
-});
-
+}, { timestamps: true } // Add timestamps option);
+);
 // const Artist = mongoose.model('Artist', artistSchema);
 
 // module.exports = Artist;

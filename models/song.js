@@ -8,8 +8,10 @@ const songSchema = new mongoose.Schema({
   lyricsK: String,
   lyricsE: String,
   thumbnail: String,
-
-});
+ 
+},
+{ timestamps: true } // Add timestamps option);
+);
 
 const Song = mongoose.models.Song || mongoose.model('Song', songSchema);
 
