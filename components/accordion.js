@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 const Accordion = ({ title, artist, thumbnail, lyricsE, lyricsK, children }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+console.log(title, artist)
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };

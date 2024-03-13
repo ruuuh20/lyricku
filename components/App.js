@@ -18,7 +18,7 @@ function App({ songs }) {
   const [selectedWord, setSelectedWord] = useState("-");
   const [selectedSong, setSelectedSong] = useState(null);
 
-  
+  console.log(songs)
 
   useEffect(() => {
     const kanjiapiInstance = Kanjiapi.build();
@@ -45,7 +45,7 @@ function App({ songs }) {
 
           <div className="min-h-screen p-4">
             <h2 className="mb-4 font-mono text-2xl font-light tracking-tight">Recently Added</h2>
-            {songs.map((song, index) => (
+            {songs && songs.data.map((song, index) => (
               <Accordion
                 key={index}
                 artist={song.artist}
