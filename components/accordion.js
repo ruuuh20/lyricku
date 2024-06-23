@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 const Accordion = ({ title, artist, thumbnail, lyricsE, lyricsK, children }) => {
   const [isOpen, setIsOpen] = useState(false);
-console.log(title, artist)
+console.log(title, artist, thumbnail)
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
@@ -14,9 +14,9 @@ console.log(title, artist)
         onClick={toggleAccordion}
       >
         <div className="flex items-center justify-between">
-          <span><Image className="rounded-lg" src={thumbnail} width={70}
+          <span><Image className="rounded-lg" src={artist.profileImage} width={70}
       height={70}/></span>
-          <h4 className="text-xl">{title} by {artist}</h4>
+          <h4 className="text-xl">{title} by {artist.name}</h4>
           <div className={`transform ${isOpen ? 'rotate-180' : 'rotate-0'} transition-transform`}>
             &#9660; {/* Down arrow */}
           </div>
