@@ -52,7 +52,7 @@ export async function getStaticPaths() {
   })).filter(path => path.params.artistname !== 'index'); // Filter out conflicting path names
 
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
