@@ -46,9 +46,11 @@ export async function getStaticPaths() {
   const response = await fetch(`${process.env.API_URL}/api/getArtists`);
   const { data } = await response.json();
 
+  // Filter out any potential conflict paths
   const paths = data.map((artist) => ({
     params: { artistname: artist.name },
-  }));
+  })).filter(path => path.params.artistname !== 'index'); // Filter out conflicting path names
+
 
   return { paths, fallback: false };
 }
