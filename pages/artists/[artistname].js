@@ -31,10 +31,8 @@ console.log(artist)
       <p>Bio: {artist.bio}</p>
       Songs
          <ul>
-        {artist.songs.map((song) => (
-          <li key={song._id}>
-            <a href={`/songs/${song._id}`}>{song.title}</a>
-          </li>
+         {artist.songs && artist.songs.map((song) => (
+          <li key={song._id}>{song.title}</li>
         ))}
       </ul>
     </div>
