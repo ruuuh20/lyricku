@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import { slugify } from '../../helpers/slugify';
 
 const ArtistsPage = ({ artists }) => {
   return (
@@ -8,7 +9,7 @@ const ArtistsPage = ({ artists }) => {
       <ul>
         {artists.map((artist) => (
           <li key={artist._id}>
-            <Link href={`/artists/${encodeURIComponent(artist.name)}`}>
+            <Link href={`/artists/${encodeURIComponent(slugify(artist.name))}`}>
               {artist.name}
             </Link>
           </li>

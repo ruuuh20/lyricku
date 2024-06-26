@@ -16,6 +16,7 @@
 // export default ArtistPage;
 
 import { useRouter } from 'next/router';
+import { slugify } from '../../helpers/slugify';
 
 const ArtistPage = ({ artist }) => {
   const router = useRouter();
@@ -45,19 +46,51 @@ export async function getStaticPaths() {
   const { data } = await response.json();
 
   const paths = data.map((artist) => ({
-    params: { artistname: artist.name },
+    params: { artistname: slugify(artist.name) },
   }));
 
   return { paths, fallback: true};
 }
 
+// export async function getStaticProps({ params }) {
+//   // Fetch the specific artist's data based on the artist name
+//   const { artistname } = params;
+
+
+//   try {
+//     const response = await fetch(`${process.env.API_URL}/api/getArtists?name=${encodeURIComponent(artistname)}`);
+//     if (!response.ok) {
+//       throw new Error(`Failed to fetch artist data: ${response.statusText}`);
+//     }
+
+//     const artistData = await response.json();
+
+//     if (!artistData.success) {
+//       throw new Error(artistData.error || 'Unknown error occurred');
+//     }
+
+//   // const response = await fetch(`${process.env.API_URL}/api/getArtist?name=${encodeURIComponent(artistname)}`);
+//   // const artistData = await response.json();
+
+//   return {
+//     props: {
+//       artist: artistData.data,
+//     },
+//   };
+//   } catch (error) {
+//     console.error('Error fetching artist data:', error);
+//     return {
+//       notFound: true,
+//     };
+//   }
+// }
+
 export async function getStaticProps({ params }) {
-  // Fetch the specific artist's data based on the artist name
   const { artistname } = params;
 
-
   try {
-    const response = await fetch(`${process.env.API_URL}/api/getArtists?name=${encodeURIComponent(artistname)}`);
+    // Fetch all artists
+    const response = await fetch(`${process.env.API_URL}/api/getArtists`);
     if (!response.ok) {
       throw new Error(`Failed to fetch artist data: ${response.statusText}`);
     }
@@ -68,14 +101,20 @@ export async function getStaticProps({ params }) {
       throw new Error(artistData.error || 'Unknown error occurred');
     }
 
-  // const response = await fetch(`${process.env.API_URL}/api/getArtist?name=${encodeURIComponent(artistname)}`);
-  // const artistData = await response.json();
+    // Find the specific artist by slugified name
+    const artist = artistData.data.find(artist => slugify(artist.name) === artistname);
 
-  return {
-    props: {
-      artist: artistData.data,
-    },
-  };
+    if (!artist) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        artist,
+      },
+    };
   } catch (error) {
     console.error('Error fetching artist data:', error);
     return {
