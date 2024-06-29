@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Kanjiapi } from "kanjiapi-wrapper";
 
 import Kanji from "./Kanji";
-import Lyrics from "./Lyrics"; 
+import Lyrics from "./Lyrics";
 
 import Header from "./header";
 import Accordion from "./accordion";
@@ -18,19 +18,14 @@ function App({ songs }) {
   const [selectedWord, setSelectedWord] = useState("-");
   const [selectedSong, setSelectedSong] = useState(null);
 
- 
-
   useEffect(() => {
-    
     const kanjiapiInstance = Kanjiapi.build();
     setKanjiapi(kanjiapiInstance);
   }, []);
-   console.log(songs)
+  console.log(songs);
 
   const handleWordClick = (word) => {
     setSelectedWord(word);
-  
-    
   };
 
   const handleSongClick = (song) => {
@@ -39,43 +34,59 @@ function App({ songs }) {
 
   return (
     <>
+      {/* <div className="fixed inset-0 z-0 grid grid-stack">
+        <div className="top-bg size-full"></div>
+        <div className="relative z-10 bottom-bg size-full">
+          <div className="size-full">
+            <div className="size-full bg-scale">
+              <img
+                className="object-cover size-full"
+                src="https://res.cloudinary.com/drc9j7ogf/image/upload/v1719509600/download_2_dy02ap.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      {/* <div className="relative overflow-hidden page-gradient"></div> */}
+
       <Header />
       <div className="container flex w-full mx-auto max-w-screen-2xl ">
         <div className="w-4/5 px-6 overflow-y-auto">
-          <SongForm />
-          <ArtistForm />
-
           <div className="min-h-screen p-4">
-            <h2 className="mb-4 font-mono text-2xl font-light tracking-tight">Recently Added</h2>
-            {songs && songs.map((song, index) => (
-              <Accordion
-                key={index}
-                artist={song.artist}
-                title={song.title}
-                lyrics={song.lyrics}
-                thumbnail={song.thumbnail}
-              >
-                {song.lyrics && (
-                  <div className="p-2 accordion-items__item jp-wrapper">
-                    <Lyrics
-                      lyrics={song.lyrics}
-                      onWordClick={handleWordClick}
-                    />
-                  </div>
-                )}
-                {song.lyricsE && (
-                  <div className="p-2 accordion-items__item eng-wrapper">
-                    <Lyrics lyrics={song.lyricsE} />
-                  </div>
-                )}
-                {song.lyricsK && (
-                  <div className="p-2 accordion-items__item kor-wrapper">
-                    <Lyrics lyrics={song.lyricsK} />
-                  </div>
-                )}
-                <EditSongForm song={song} />
-              </Accordion>
-            ))}
+            <h2 className="mb-4 font-mono text-2xl font-light tracking-tight royalblue">
+              Recently Added
+            </h2>
+            {songs &&
+              songs.map((song, index) => (
+                <Accordion
+                  key={index}
+                  artist={song.artist}
+                  title={song.title}
+                  lyrics={song.lyrics}
+                  thumbnail={song.thumbnail}
+                >
+                  {song.lyrics && (
+                    <div className="p-2 accordion-items__item jp-wrapper">
+                      <Lyrics
+                        lyrics={song.lyrics}
+                        onWordClick={handleWordClick}
+                      />
+                    </div>
+                  )}
+                  {song.lyricsE && (
+                    <div className="p-2 accordion-items__item eng-wrapper">
+                      <Lyrics lyrics={song.lyricsE} />
+                    </div>
+                  )}
+                  {song.lyricsK && (
+                    <div className="p-2 accordion-items__item kor-wrapper">
+                      <Lyrics lyrics={song.lyricsK} />
+                    </div>
+                  )}
+                  <EditSongForm song={song} />
+                </Accordion>
+              ))}
           </div>
 
           {/* <ul className="song-list">

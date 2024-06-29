@@ -16,6 +16,17 @@ async function associateSongWithArtist(artistObject, title, lyrics, lyricsK, lyr
       throw new Error('Artist not found');
     }
 
+    // Check if the song already exists to prevent duplicates
+    const existingSong = await Song.findOne({
+      title: title,
+      artist: artist._id
+    });
+
+    if (existingSong) {
+      return { success: false, error: 'Song already exists' };
+    }
+
+
     const song = new Song({
       title,
       artist: artist ? artist._id : null,

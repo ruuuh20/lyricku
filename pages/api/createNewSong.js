@@ -24,24 +24,12 @@ console.log(artistName)
     }
 
     // const { name: artistName } = artist;
-    console.log(artistObject, 'this is artist object')
+
       const result = await associateSongWithArtist(artistObject, title, lyrics, lyricsK, lyricsE);
 
-      if (result.success) {
-        // Song is associated with the artist, continue with saving the song
-        const song = new Song({
-          title,
-          artist: artistObject, // Assuming you store artist names directly in the Song model
-          lyrics,
-          lyricsK,
-          lyricsE,
-        });
-
-        await song.save();
-
-        res.status(200).json({ success: true, data: song });
+        if (result.success) {
+        res.status(200).json({ success: true, data: result.data });
       } else {
-        // Handle the case where associating the song with the artist failed
         res.status(500).json({ success: false, error: result.error });
       }
     } catch (error) {

@@ -31,7 +31,8 @@ body {
   /* background-color: #b7b7b7; */
   /* background: #f6f6f6; */
   /* background: #3a4444; */
-  background: #b3cebb;
+  /* background: #b3cebb; */
+  background: #edecec;
 }
 
 span.clickable {
@@ -171,4 +172,69 @@ span.clickable:hover {
 
 header {
   /* bg-[#d4dcda] */
+}
+
+.grid-stack {
+  grid-template: 100% /100%;
+  height: 100lvh;
+}
+
+.top-bg {
+  background: linear-gradient(rgb(48, 52, 54), rgb(36, 39, 40));
+  grid-area: 1 / 1;
+}
+
+.size-full {
+  height: 100%;
+  width: 100%;
+}
+
+.bottom-bg {
+  grid-area: 1 /1;
+}
+.bg-scale {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+}
+
+.page-gradient:before {
+  background-color: #f4b14b;
+}
+
+.page-gradient:before {
+  bottom: 0;
+  content: "";
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.page-gradient:after {
+  bottom: 0;
+  content: "";
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.page-gradient:after {
+  --tw-gradient-from: #fff;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: hsla(0, 0%, 100%, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #fff, var(--tw-gradient-to);
+  --tw-gradient-to: transparent;
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.royalblue {
+  color: #0662ff;
+  color: #3667f6;
+  /* color:rgb(34, 102, 102); */
 }
